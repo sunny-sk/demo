@@ -1,7 +1,6 @@
 import React from 'react'
 import "./Home.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Header from '../misc/Header'
 import Gift from '../misc/Gift'
 import Property from '../misc/Property'
 import QnA from '../misc/QnA'
@@ -13,6 +12,7 @@ import sellhome from "../../images/sellhome.jpg";
 import faq from "../../datas/faqs/faq";
 import properties from "../../datas/properties";
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -21,8 +21,48 @@ const Home = () => {
     })
     return (
         <React.Fragment>
-            <Header />
-            <h2>
+            {/* New Hero Section */}
+            <div className="hero-section">
+                <div className="hero-content">
+                    <h1 className="hero-title">Revolutionize Your <span className="highlight">Real Estate</span> Investment</h1>
+                    <p className="hero-subtitle">Invest and Trade in Real Estate with Cryptocurrency</p>
+                    <div className="hero-cta">
+                        <a href='#properties'>
+                          <button className="primary-btn">Start Investing</button>
+                        </a>
+                        <button className="secondary-btn">Learn More</button>
+                    </div>
+                    <div className="hero-stats">
+                        <div className="stat-item">
+                            <h3>7%+</h3>
+                            <p>Average Returns</p>
+                        </div>
+                        <div className="stat-item">
+                            <h3>$10</h3>
+                            <p>Minimum Investment</p>
+                        </div>
+                        <div className="stat-item">
+                            <h3>24/7</h3>
+                            <p>Market Access</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="hero-image">
+                    <div className="image-container">
+                        <img src={home1} alt="Real estate investment" />
+                        <div className="floating-card card1">
+                            <i className="fas fa-chart-line"></i>
+                            <span>7% Average Returns</span>
+                        </div>
+                        <div className="floating-card card2">
+                            <i className="fas fa-wallet"></i>
+                            <span>Instant Liquidity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 className="section-title">
               How to invest and trade in real estate with GoldenCity?
             </h2>
             <div className="container">

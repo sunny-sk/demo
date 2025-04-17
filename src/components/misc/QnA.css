@@ -1,41 +1,114 @@
 :root {
   --blue: #006EFF;
   --darkBlue: #12417E;
+  --heroGradient1: #1a2a6c;
+  --heroGradient2: #b21f1f;
+  --heroGradient3: #fdbb2d;
 }
 
-#qna {
-  max-width: 600px;
-  width: 98%;
-  padding: 8px 32px;
-  border-radius: 11px;
-  margin: 16px 1%;
-  text-align: left;
-  box-shadow: 4px 4px 4px 4px rgba(0,0,0,.1);
+.qna-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 16px auto;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.border-blue {
-  border: 2px solid var(--blue);
+.qna-container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
-.drop-down .fas {
-  color: var(--blue);
-  font-size: 34px;
-  padding-top: 16px;
-  cursor: pointer;
+.qna-container.active {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.question {
+.qna-question {
   display: flex;
   justify-content: space-between;
-  gap: 8px;  
+  align-items: center;
+  padding: 20px 30px;
+  cursor: pointer;
+  position: relative;
 }
 
-.question h3 {
-  text-align: left;
+.qna-question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
-@media (min-width: 48em) {
-  #qna {
-    margin: 16px  auto;
+.qna-number {
+  color: var(--heroGradient3);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.qna-container:hover .qna-question h3 {
+  color: var(--heroGradient1);
+}
+
+.qna-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--heroGradient1), var(--heroGradient2));
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.qna-icon i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.qna-container.active .qna-icon {
+  background: var(--heroGradient3);
+  transform: rotate(180deg);
+}
+
+.qna-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.4s ease;
+  padding: 0 30px;
+}
+
+.qna-answer.show {
+  max-height: 1000px;
+  transition: max-height 0.6s ease-in-out, padding 0.6s ease;
+  padding: 0 30px 20px;
+}
+
+.qna-answer p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .qna-container {
+    width: 95%;
+  }
+  
+  .qna-question {
+    padding: 16px 20px;
+  }
+  
+  .qna-question h3 {
+    font-size: 1rem;
+  }
+  
+  .qna-answer.show {
+    padding: 0 20px 16px;
   }
 }

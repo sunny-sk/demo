@@ -1,43 +1,28 @@
-import React, {useState} from 'react'
-import './QnA.css'
+import React, { useState } from "react";
+import "./QnA.css";
 
-const QnA = ({n, q}) => {
-  const [showAnswer, setShowAnser] = useState(false);
-  const [border, setBorder] = useState("");
-    
+const QnA = ({ n, q }) => {
+  const [showAnswer, setShowAnswer] = useState(false);
+
   function toggleAnswer() {
-    setShowAnser(!showAnswer);
-    toggleBorder();
+    setShowAnswer(!showAnswer);
   }
-  
-  function toggleBorder() {
-    setBorder(border === "" ? "border-blue": "")
-  }
-    return (
-        <React.Fragment>
-          <div id="qna" className={border}>
-	    <div className="question">
-	      <h3>
-                {n}. {q.question}
-	      </h3>
-              <div className="drop-down" onClick={toggleAnswer}>
-                {showAnswer ? 
-                <i 
-                  className="fas fa-angle-down"
-                /> :
-                <i 
-                  className="fas fa-angle-right "
-                />
-                }
-              </div>
-            </div>
-            {showAnswer && <p>
-                {q.answer}
-              </p>
-            }
-          </div>
-        </React.Fragment>
-    )
-}
+
+  return (
+    <div className={`qna-container ${showAnswer ? 'active' : ''}`}>
+      <div className="qna-question" onClick={toggleAnswer}>
+        <h3>
+          <span className="qna-number">{n}.</span> {q.question}
+        </h3>
+        <div className="qna-icon">
+          <i className={`fas ${showAnswer ? 'fa-minus' : 'fa-plus'}`} />
+        </div>
+      </div>
+      <div className={`qna-answer ${showAnswer ? 'show' : ''}`}>
+        <p>{q.answer}</p>
+      </div>
+    </div>
+  );
+};
 
 export default QnA;

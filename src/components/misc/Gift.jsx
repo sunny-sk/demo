@@ -4,22 +4,37 @@ import building from "../../images/building.jpg"
 
 const Gift = () => {
     return (
-        <React.Fragment>
+        <div className="gift-container">
           <div className="gift">
-            <div className="text">
-              <h3>Lots of gifts to be won!</h3>
-              <p>
-                Please join our group where we can talk about the various current and future properties. In addition, there will be prizes to be won.
+            <div className="gift-content">
+              <h2 className="gift-title">Exclusive Rewards Await You!</h2>
+              <p className="gift-description">
+                Join our community to discuss current and future properties, get insider tips, and participate in exclusive giveaways and rewards.
               </p>
-              <a href=" https://discord.gg">
-                <button className="gift-button">
-                  Join the discord
-                </button>
-              </a>
+              <div className="gift-actions">
+                <a href="https://discord.gg" target="_blank" rel="noopener noreferrer">
+                  <button className="gift-button">
+                    <i className="fab fa-discord"></i> Join our Discord
+                  </button>
+                </a>
+                <div className="gift-stats">
+                  <div className="stat">
+                    <span className="stat-number">5K+</span>
+                    <span className="stat-label">Community Members</span>
+                  </div>
+                  <div className="stat">
+                    <span className="stat-number">$50K</span>
+                    <span className="stat-label">In Rewards Given</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <img className="building" src={building} alt="building"/>
+            <div className="gift-image-container">
+              <img className="gift-image" src={building} alt="Luxury building"/>
+              <div className="image-overlay"></div>
+            </div>
           </div>
-        </React.Fragment>
+        </div>
     )
 }
 

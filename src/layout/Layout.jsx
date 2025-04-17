@@ -8,7 +8,6 @@ const Layout = (props) => {
     return(
         <React.Fragment>
             <MenuBar />
-
             <main className="main-content">
                 {props.children}
             </main>

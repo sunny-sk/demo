@@ -1,0 +1,136 @@
+.marketplace {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.marketplace-hero {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+  color: white;
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.marketplace-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 0.5s ease-out;
+}
+
+.marketplace-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.marketplace-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.marketplace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.marketplace-filters {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background-color: white;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #fff;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+  color: white;
+}
+
+.sort-select {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background-color: white;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .marketplace-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .marketplace-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .marketplace-filters {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .filter-btn {
+    white-space: nowrap;
+  }
+  
+  .sort-select {
+    width: 100%;
+  }
+  
+  .properties-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
